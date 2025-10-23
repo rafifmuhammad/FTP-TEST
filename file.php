@@ -17,7 +17,7 @@ $error = '';
 if ($host && $username && $password) {
   $conn = @ftp_connect($host);
   if ($conn && @ftp_login($conn, $username, $password)) {
-    $files = @ftp_nlist($conn, "/ftp/");
+    $files = ftp_nlist($conn, ".");
     ftp_close($conn);
   } else {
     $error = "Gagal koneksi ke FTP server.";
